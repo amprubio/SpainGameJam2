@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         dirX =dirY= 0;
-       
+ 
     }
 
     // Update is called once per frame
