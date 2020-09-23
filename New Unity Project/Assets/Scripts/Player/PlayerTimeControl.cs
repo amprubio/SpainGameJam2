@@ -15,8 +15,6 @@ public class PlayerTimeControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-<<<<<<< HEAD
-=======
        if (GameManager.instance.IsGameStateStart())
        {
             if (Input.GetKeyDown(time_key))
@@ -32,7 +30,5 @@ public class PlayerTimeControl : MonoBehaviour
             }
 
         }
->>>>>>> 43673f093577cc159aab00ede6c1a5480ffe3c6a
-
     }
 }
