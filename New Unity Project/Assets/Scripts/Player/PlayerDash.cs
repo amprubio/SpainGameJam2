@@ -26,7 +26,6 @@ public class PlayerDash : MonoBehaviour
     Vector2 dashVector;
 
     //vars
-    bool dashing;
     float dashTimer;
 
 
@@ -41,7 +40,6 @@ public class PlayerDash : MonoBehaviour
 
         //initial vector
         forwardVector = dashVector = Vector2.up;
-        dashing = false;
     }
 
     // Update is called once per frame
@@ -58,11 +56,11 @@ public class PlayerDash : MonoBehaviour
 
             if (Input.GetKeyDown(dashKey))
             {
-                dashing = true;
+                GameManager.instance.PlayerDashing();
                 dashVector = forwardVector;
             }
 
-            if (dashing) {
+            if (GameManager.instance.IsPlayerDashing()) {
                 dashTimer += Time.deltaTime;
                 m_Rigidbody.velocity = dashVector * dashSpeed;
             }
@@ -70,7 +68,7 @@ public class PlayerDash : MonoBehaviour
             if (dashTimer >= dashDuration)
             {
                 dashTimer = 0;
-                dashing = false;
+                GameManager.instance.PlayerIdle();
                 m_Rigidbody.velocity = Vector2.zero;
             }
 

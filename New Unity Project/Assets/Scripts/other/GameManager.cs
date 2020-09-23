@@ -24,20 +24,36 @@ public class GameManager : MonoBehaviour
         STOP
     };
 
+    public enum PlayerStateMachine : int
+    {
+        IDLE,       //not doing anything
+        MOVE,       //moving
+        ATTACKING,      //attacking
+        SHOOTING,      //attacking
+        DASHING,      //doing a dash
+    };
+
     private StateMachine GameState;
     private EntityMovState EntMoveState;
+    private PlayerStateMachine PlayerState;
 
     public StateMachine GetStateMachine() { return GameState; }
     public bool IsGameStateStart() { return GameState == StateMachine.GAMESTART; }
     public bool IsGameStatePause() { return GameState == StateMachine.PAUSE;}
     public bool IsGameStateOver() { return GameState == StateMachine.GAMEOVER;}
-
+    public bool IsGameStateStartMenu() { return GameState == StateMachine.GAMEOVER;}
 
     public EntityMovState GetEntityMov() { return EntMoveState; }
-
     public bool IsMoving() { return EntMoveState == EntityMovState.MOVE; }
     public bool IsFreeze() { return EntMoveState == EntityMovState.TIMEFREEZE; }
     public bool IsStop() { return EntMoveState == EntityMovState.STOP; }
+
+    public PlayerStateMachine GetPlayerState() { return PlayerState; }
+    public bool IsPlayerIdle() { return PlayerState == PlayerStateMachine.IDLE; }
+    public bool IsPlayerMoving() { return PlayerState == PlayerStateMachine.MOVE;}
+    public bool IsPlayerAttacking() { return PlayerState == PlayerStateMachine.ATTACKING;}
+    public bool IsPlayerShooting() { return PlayerState == PlayerStateMachine.SHOOTING;}
+    public bool IsPlayerDashing() { return PlayerState == PlayerStateMachine.DASHING;}
 
     private void Awake()
     {
@@ -53,6 +69,8 @@ public class GameManager : MonoBehaviour
         GameStart();
         EntMoveState = new EntityMovState();
         Move();
+        PlayerState = new PlayerStateMachine();
+        PlayerIdle();
     }
 
 
@@ -100,4 +118,33 @@ public class GameManager : MonoBehaviour
     //////// ENTITY MOV STATE ////////
     //////////////////////////////////
 
+    //////////////////////////////////
+    //////// ENTITY MOV STATE ////////
+    public void PlayerIdle() {
+        PlayerState = PlayerStateMachine.IDLE;
+        Debug.Log ("Player state: IDLE");
+    }
+
+    public void PlayerMove() {
+        PlayerState = PlayerStateMachine.MOVE;
+        Debug.Log ("Player state: MOVE");
+    }
+
+    public void PlayerAttacking() {
+        PlayerState = PlayerStateMachine.ATTACKING;
+        Debug.Log ("Player state: ATTACKING");
+    }
+
+    public void PlayerShooting() {
+        PlayerState = PlayerStateMachine.SHOOTING;
+        Debug.Log ("Player state: SHOOTING");
+    }
+
+    public void PlayerDashing() {
+        PlayerState = PlayerStateMachine.DASHING;
+        Debug.Log ("Player state: DASHING");
+    }
+
+    //////// ENTITY MOV STATE ////////
+    //////////////////////////////////
 }
