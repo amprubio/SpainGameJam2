@@ -6,8 +6,8 @@ public class PlayerDash : MonoBehaviour
 {
     //we take first rotation to be upwards
     [Header("Variables iniciadas")]
-    public float rotacion_inicial;
-    public float dashDistance;
+    public float dashSpeed;
+    public float dashDuration;
     public KeyCode dashKey = KeyCode.Space;
 
     //Use to apply force to RigidBody
@@ -23,11 +23,11 @@ public class PlayerDash : MonoBehaviour
     Vector2 prePos;
     Vector2 postPos;
     Vector2 forwardVector;
+    Vector2 dashVector;
 
     //vars
-    float rotationAngle;
-    float xImpulse;
-    float yImpulse;
+    bool dashing;
+    float dashTimer;
 
 
     // Start is called before the first frame update
@@ -40,9 +40,8 @@ public class PlayerDash : MonoBehaviour
         m_Transform = GetComponent<Transform>();
 
         //initial vector
-        forwardVector = Vector2.up;
-
-        m_Rigidbody.drag = dashDistance*10;
+        forwardVector = dashVector = Vector2.up;
+        dashing = false;
     }
 
     // Update is called once per frame
@@ -59,9 +58,22 @@ public class PlayerDash : MonoBehaviour
 
             if (Input.GetKeyDown(dashKey))
             {
-                //Use Impulse mode as a force on the RigidBody
-                m_Rigidbody.AddForce(forwardVector * 100 * dashDistance, ForceMode2D.Impulse);
+                dashing = true;
+                dashVector = forwardVector;
             }
+
+            if (dashing) {
+                dashTimer += Time.deltaTime;
+                m_Rigidbody.velocity = dashVector * dashSpeed;
+            }
+
+            if (dashTimer >= dashDuration)
+            {
+                dashTimer = 0;
+                dashing = false;
+                m_Rigidbody.velocity = Vector2.zero;
+            }
+
 
             postPos = m_Transform.position;
         }
