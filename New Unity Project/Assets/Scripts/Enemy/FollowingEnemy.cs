@@ -22,7 +22,7 @@ public class FollowingEnemy : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.instance.IsGameStateStart()&&GameManager.instance.IsMoving())
+        if (GameManager.instance.IsGameStateStart() && GameManager.instance.IsMoving())
         {
             float posX = Mathf.SmoothDamp(transform.position.x, target.transform.position.x, ref vel.x, time);
             float posY = Mathf.SmoothDamp(transform.position.y, target.transform.position.y, ref vel.y, time);
