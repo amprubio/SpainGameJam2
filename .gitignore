@@ -9,6 +9,7 @@ New Unity Project/[Bb]uild/
 New Unity Project/[Bb]uilds/
 New Unity Project/[Ll]ogs/
 New Unity Project/[Mm]emoryCaptures/
+New Unity Project/[Pp]ackages/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
@@ -57,4 +58,3 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
-
