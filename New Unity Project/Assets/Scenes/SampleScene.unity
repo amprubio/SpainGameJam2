@@ -445,6 +445,54 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &841971685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 841971686}
+  - component: {fileID: 841971687}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &841971686
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841971685}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1393377018}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &841971687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841971685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2735fe49feae1fe4b950e46521090df4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet_object: {fileID: 6708055680888433755, guid: a05fc846cf57c70458fb2ca102049a74,
+    type: 3}
+  shooting_key: 323
+  shootSpeed: 0
+  camara_de_jugador: {fileID: 519420031}
 --- !u!1 &1393377014
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,7 +506,6 @@ GameObject:
   - component: {fileID: 1393377016}
   - component: {fileID: 1393377015}
   - component: {fileID: 1393377020}
-  - component: {fileID: 1393377022}
   - component: {fileID: 1393377019}
   - component: {fileID: 1393377021}
   m_Layer: 0
@@ -539,7 +586,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.8, y: -9.1, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 841971686}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -605,23 +653,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1393377022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1393377014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2735fe49feae1fe4b950e46521090df4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet_object: {fileID: 6708055680888433755, guid: a05fc846cf57c70458fb2ca102049a74,
-    type: 3}
-  shooting_key: 323
-  shootSpeed: 10
-  camara_de_jugador: {fileID: 519420031}
 --- !u!1 &2022232924
 GameObject:
   m_ObjectHideFlags: 0
