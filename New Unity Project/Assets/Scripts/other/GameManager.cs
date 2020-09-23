@@ -26,12 +26,12 @@ public class GameManager : MonoBehaviour
 
     private StateMachine GameState;
     private EntityMovState EntMoveState;
-   
+
     public StateMachine GetStateMachine() { return GameState; }
     public bool IsGameStateStart() { return GameState == StateMachine.GAMESTART; }
     public bool IsGameStatePause() { return GameState == StateMachine.PAUSE;}
     public bool IsGameStateOver() { return GameState == StateMachine.GAMEOVER;}
-    
+
 
     public EntityMovState GetEntityMov() { return EntMoveState; }
 
@@ -50,12 +50,12 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
 
         GameState = new StateMachine();
-        GameStart(); 
+        GameStart();
         EntMoveState = new EntityMovState();
         Move();
     }
 
-   
+
 
     ///////////////////////////////
     //////// STATE MACHINE ////////
@@ -90,12 +90,12 @@ public class GameManager : MonoBehaviour
 
     public void TimeFreeze() {
         EntMoveState = EntityMovState.TIMEFREEZE;
-        Debug.Log ("Game state: TIMEFREEZE");
+        Debug.Log ("Entity movement: TIMEFREEZE");
     }
 
     public void Stop() {
         EntMoveState = EntityMovState.STOP;
-        Debug.Log ("Game state: STOP");
+        Debug.Log ("Entity movement: STOP");
     }
     //////// ENTITY MOV STATE ////////
     //////////////////////////////////
