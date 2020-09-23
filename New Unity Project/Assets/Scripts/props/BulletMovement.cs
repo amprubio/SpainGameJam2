@@ -10,7 +10,11 @@ public class BulletMovement : MonoBehaviour
     Vector2 dir;
     private void FixedUpdate()
     {
-        transform.Translate(dir.x*speed,dir.y*speed,0);
+        if (GameManager.instance.IsGameStateStart() && GameManager.instance.IsMoving())
+        {
+
+            transform.Translate(dir.x * speed, dir.y * speed, 0);
+        }
     }
 
     public void setDir(Vector2 v) { dir = v; }

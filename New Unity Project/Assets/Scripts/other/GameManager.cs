@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager instance;
+    public static GameManager instance;
 
     public enum StateMachine : int
     {
@@ -24,18 +24,38 @@ public class GameManager : MonoBehaviour
         STOP
     };
 
-    public StateMachine GameState;
-    public EntityMovState EntMoveState;
+    private StateMachine GameState;
+    private EntityMovState EntMoveState;
+   
+    public StateMachine GetStateMachine() { return GameState; }
+    public bool IsGameStateStart() { return GameState == StateMachine.GAMESTART; }
+    public bool IsGameStatePause() { return GameState == StateMachine.PAUSE;}
+    public bool IsGameStateOver() { return GameState == StateMachine.GAMEOVER;}
+    
 
-    public static GameManager Instance {
-        get {
-            if(instance==null) {
-                instance = new GameManager();
-            }
+    public EntityMovState GetEntityMov() { return EntMoveState; }
 
-            return instance;
+    public bool IsMoving() { return EntMoveState == EntityMovState.MOVE; }
+    public bool IsFreeze() { return EntMoveState == EntityMovState.TIMEFREEZE; }
+    public bool IsStop() { return EntMoveState == EntityMovState.STOP; }
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
         }
+        else
+            Destroy(this.gameObject);
+
+        GameState = new StateMachine();
+        GameStart(); 
+        EntMoveState = new EntityMovState();
+        Move();
     }
+
+   
 
     ///////////////////////////////
     //////// STATE MACHINE ////////
