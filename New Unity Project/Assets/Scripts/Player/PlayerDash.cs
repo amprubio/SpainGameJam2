@@ -48,18 +48,22 @@ public class PlayerDash : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        prePos = m_Transform.position;
-        if (prePos-postPos != Vector2.zero) {
-            forwardVector = prePos-postPos;
-            forwardVector.Normalize();
-        }
-
-        if (Input.GetKeyDown(dashKey))
+        if (GameManager.instance.IsGameStateStart())
         {
-            //Use Impulse mode as a force on the RigidBody
-            m_Rigidbody.AddForce(forwardVector*100*dashDistance, ForceMode2D.Impulse);
-        }
+            prePos = m_Transform.position;
+            if (prePos - postPos != Vector2.zero)
+            {
+                forwardVector = prePos - postPos;
+                forwardVector.Normalize();
+            }
 
-        postPos = m_Transform.position;
+            if (Input.GetKeyDown(dashKey))
+            {
+                //Use Impulse mode as a force on the RigidBody
+                m_Rigidbody.AddForce(forwardVector * 100 * dashDistance, ForceMode2D.Impulse);
+            }
+
+            postPos = m_Transform.position;
+        }
     }
 }

@@ -22,10 +22,13 @@ public class FollowingEnemy : MonoBehaviour
 
     void Update()
     {
-        float posX = Mathf.SmoothDamp(transform.position.x, target.transform.position.x, ref vel.x, time);
-        float posY = Mathf.SmoothDamp(transform.position.y, target.transform.position.y, ref vel.y, time);
+        if (GameManager.instance.IsGameStateStart() && GameManager.instance.IsMoving())
+        {
+            float posX = Mathf.SmoothDamp(transform.position.x, target.transform.position.x, ref vel.x, time);
+            float posY = Mathf.SmoothDamp(transform.position.y, target.transform.position.y, ref vel.y, time);
 
-        transform.position = new Vector3(Mathf.Clamp(posX, xMin, xMax), Mathf.Clamp(posY, yMin, yMax), transform.position.z);
+            transform.position = new Vector3(Mathf.Clamp(posX, xMin, xMax), Mathf.Clamp(posY, yMin, yMax), transform.position.z);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D col)
