@@ -6,7 +6,7 @@ public class FollowingEnemy : MonoBehaviour
 {
     [Header("Delay")]
     public float time;
-    public Transform target;
+    private GameObject target;
     public Vector2 vel;
 
     public float xMax;
@@ -17,7 +17,7 @@ public class FollowingEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        target = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
@@ -26,5 +26,13 @@ public class FollowingEnemy : MonoBehaviour
         float posY = Mathf.SmoothDamp(transform.position.y, target.transform.position.y, ref vel.y, time);
 
         transform.position = new Vector3(Mathf.Clamp(posX, xMin, xMax), Mathf.Clamp(posY, yMin, yMax), transform.position.z);
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (!col.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

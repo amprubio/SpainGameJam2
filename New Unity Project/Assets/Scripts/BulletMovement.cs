@@ -14,4 +14,12 @@ public class BulletMovement : MonoBehaviour
     }
 
     public void setDir(Vector2 v) { dir = v; }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }
