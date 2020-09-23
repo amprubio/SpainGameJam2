@@ -15,16 +15,16 @@ public class SpawnBoss : MonoBehaviour
 
     System.Random rnd = new System.Random();
 
-    void Update()
+    void Start()
     {
-
-        Invoke("CreateEnemy", time);
+        CreateEnemy();
+        InvokeRepeating("CreateEnemy", time, time);
     }
 
     private void CreateEnemy()
     {
         int i = rnd.Next(0, 100);
-        if (i < chance)
+        if (i <= chance)
         {
             Instantiate(enemy, this.transform.position, Quaternion.identity);
         }
