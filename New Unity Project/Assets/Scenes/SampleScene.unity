@@ -696,7 +696,7 @@ GameObject:
   - component: {fileID: 1393377022}
   m_Layer: 0
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -804,8 +804,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
+  m_UseAutoMass: 1
+  m_Mass: 16.880083
   m_LinearDrag: 10
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -868,11 +868,11 @@ GameObject:
   - component: {fileID: 1405919634}
   - component: {fileID: 1405919633}
   - component: {fileID: 1405919632}
-  - component: {fileID: 1405919631}
   - component: {fileID: 1405919630}
+  - component: {fileID: 1405919631}
   m_Layer: 0
   m_Name: boss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -891,20 +891,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 50
   enemy: {fileID: 8895390220510046128, guid: 5f1b722d63bbe1e4aa5acf33f44c5e32, type: 3}
-  chance: 20
---- !u!65 &1405919631
-BoxCollider:
+  chance: 50
+--- !u!61 &1405919631
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405919629}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!23 &1405919632
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1147,8 +1160,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6724923771182014829}
   m_LocalRotation: {x: -0.6806915, y: -0.19609454, z: -0.17982338, w: 0.68254644}
-  m_LocalPosition: {x: 3.36, y: 21.5, z: 8.5}
-  m_LocalScale: {x: -0.7042257, y: -0.7042255, z: -0.70422536}
+  m_LocalPosition: {x: 5.6, y: 19.3, z: 8.5}
+  m_LocalScale: {x: -0.83877385, y: -0.7042254, z: -0.9409859}
   m_Children: []
   m_Father: {fileID: 6126191497499202599}
   m_RootOrder: 1
@@ -1164,28 +1177,43 @@ GameObject:
   - component: {fileID: 6602499736875714928}
   - component: {fileID: 6136715502728459520}
   - component: {fileID: 2907162916035441982}
+  - component: {fileID: 6724923771182014831}
   - component: {fileID: 6724923771182014830}
   m_Layer: 0
   m_Name: scytheBlade
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &6724923771182014830
-MeshCollider:
+--- !u!70 &6724923771182014830
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6724923771182014829}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.4588395, y: 0.46440795}
+  m_Size: {x: 43.977486, y: 0.44252303}
+  m_Direction: 0
+--- !u!114 &6724923771182014831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6724923771182014829}
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 7390745476888700207, guid: 6f24026844915824eb5a8f5d2582aff8, type: 3}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f37ff989fabdb439442b8b6a7394fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6795731834375573149
 GameObject:
   m_ObjectHideFlags: 0
