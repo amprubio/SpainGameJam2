@@ -15,11 +15,13 @@ public class BulletMovement : MonoBehaviour
 
     public void setDir(Vector2 v) { dir = v; }
 
-    void OnCollisionEnter2D(Collision2D col)
+    void OnCollisionStay2D(Collision2D col)
     {
-        if (!col.gameObject.CompareTag("Player"))
+        if (!(col.gameObject.CompareTag("Player")))
         {
-            Destroy(this.gameObject);
+           //quitar vida a col si tiene
+           
+           Destroy(this.gameObject);
         }
     }
 }
