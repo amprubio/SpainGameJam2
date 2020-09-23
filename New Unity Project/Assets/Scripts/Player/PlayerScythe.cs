@@ -20,7 +20,7 @@ public class PlayerScythe : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
         anim = scythePivot.GetComponent<Animator>();
         trail = scytheTrail.GetComponent<TrailRenderer>();
     }
@@ -31,20 +31,28 @@ public class PlayerScythe : MonoBehaviour
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("stop")) {
             can_attack = true;
             trail.Clear();
+
+            if (GameManager.instance.IsPlayerAttacking()) {
+                GameManager.instance.PlayerIdle();
+            }
+
         }
 
         if (can_attack) {
-            if (Input.GetKeyDown(attackKey)) {
-                anim.Play("attack", 0, 1/attackSpeed);
-                can_attack = false;
-                col_.SetActive(true);
+            if ( Input.GetKeyDown(attackKey) ) {
+                if ( !GameManager.instance.IsPlayerDashing() &&
+                     !GameManager.instance.IsPlayerShooting() ) {
+                    anim.Play("attack", 0, 1/attackSpeed);
+                    can_attack = false;
+                    GameManager.instance.PlayerAttacking();
+                    col_.SetActive(true);
+                }
             }
             else
             {
                 col_.SetActive(false);
             }
         }
-
     }
 
     void OnCollisionEnter2D(Collision2D col)

@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         dirX =dirY= 0;
- 
+
     }
 
     // Update is called once per frame
@@ -22,6 +22,11 @@ public class PlayerMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
-        transform.Translate(dirX*speedx*Time.deltaTime, dirY*speedy * Time.deltaTime, 0);
+        if ( GameManager.instance.IsGameStateStart() &&
+             !GameManager.instance.IsStop() &&
+             !GameManager.instance.IsPlayerDashing() )
+        {
+                transform.Translate(dirX*speedx*Time.deltaTime, dirY*speedy * Time.deltaTime, 0);
+        }
     }
 }

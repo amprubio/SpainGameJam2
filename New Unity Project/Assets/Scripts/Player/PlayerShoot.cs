@@ -8,6 +8,7 @@ public class PlayerShoot : MonoBehaviour
     public GameObject bullet_object;
     public KeyCode shooting_key;
     public float shootSpeed;
+    public float shootDelay;
     public Camera camara_de_jugador;
 
     //bullet duplicate
@@ -15,12 +16,13 @@ public class PlayerShoot : MonoBehaviour
 
     //needed vars
     Transform m_Transform;
-   
+
 
     //positions
     Vector2 pos;
     Vector2 mousePos;
     Vector2 shootDirection;
+    float shootTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -47,11 +49,25 @@ public class PlayerShoot : MonoBehaviour
 
         if (Input.GetKeyDown(shooting_key))
         {
-            copy = Instantiate(bullet_object, pos, Quaternion.identity);
-            copy.SetActive(true);
-            BulletMovement b = copy.GetComponent<BulletMovement>();
-            b.setDir(shootDirection);
+            if ( GameManager.instance.IsPlayerIdle() ) {
+                GameManager.instance.PlayerShooting();
+                copy = Instantiate(bullet_object, pos, Quaternion.identity);
+                copy.SetActive(true);
+                BulletMovement b = copy.GetComponent<BulletMovement>();
+                b.setDir(shootDirection);
+                shootTimer = 0;
+            }
+        }
+
+        if ( GameManager.instance.IsPlayerShooting() )
+        {
+            shootTimer += Time.deltaTime;
+        }
+
+        if (shootTimer >= shootDelay)
+        {
+            shootTimer = 0;
+            GameManager.instance.PlayerIdle();
         }
     }
 }
-

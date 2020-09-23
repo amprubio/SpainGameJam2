@@ -27,7 +27,6 @@ public class GameManager : MonoBehaviour
     public enum PlayerStateMachine : int
     {
         IDLE,       //not doing anything
-        MOVE,       //moving
         ATTACKING,      //attacking
         SHOOTING,      //attacking
         DASHING,      //doing a dash
@@ -50,7 +49,6 @@ public class GameManager : MonoBehaviour
 
     public PlayerStateMachine GetPlayerState() { return PlayerState; }
     public bool IsPlayerIdle() { return PlayerState == PlayerStateMachine.IDLE; }
-    public bool IsPlayerMoving() { return PlayerState == PlayerStateMachine.MOVE;}
     public bool IsPlayerAttacking() { return PlayerState == PlayerStateMachine.ATTACKING;}
     public bool IsPlayerShooting() { return PlayerState == PlayerStateMachine.SHOOTING;}
     public bool IsPlayerDashing() { return PlayerState == PlayerStateMachine.DASHING;}
@@ -118,16 +116,11 @@ public class GameManager : MonoBehaviour
     //////// ENTITY MOV STATE ////////
     //////////////////////////////////
 
-    //////////////////////////////////
-    //////// ENTITY MOV STATE ////////
+    //////////////////////////////
+    //////// PLAYER STATE ////////
     public void PlayerIdle() {
         PlayerState = PlayerStateMachine.IDLE;
         Debug.Log ("Player state: IDLE");
-    }
-
-    public void PlayerMove() {
-        PlayerState = PlayerStateMachine.MOVE;
-        Debug.Log ("Player state: MOVE");
     }
 
     public void PlayerAttacking() {
@@ -145,6 +138,6 @@ public class GameManager : MonoBehaviour
         Debug.Log ("Player state: DASHING");
     }
 
-    //////// ENTITY MOV STATE ////////
-    //////////////////////////////////
+    //////// PLAYER STATE ////////
+    //////////////////////////////
 }

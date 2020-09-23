@@ -45,8 +45,8 @@ public class PlayerDash : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.instance.IsGameStateStart())
-        {
+        if (GameManager.instance.IsGameStateStart() && !GameManager.instance.IsStop()) {
+
             prePos = m_Transform.position;
             if (prePos - postPos != Vector2.zero)
             {
@@ -56,11 +56,16 @@ public class PlayerDash : MonoBehaviour
 
             if (Input.GetKeyDown(dashKey))
             {
-                GameManager.instance.PlayerDashing();
-                dashVector = forwardVector;
+                if ( GameManager.instance.IsPlayerIdle() ||
+                     GameManager.instance.IsPlayerShooting() ) {
+
+                    GameManager.instance.PlayerDashing();
+                    dashVector = forwardVector;
+                }
             }
 
-            if (GameManager.instance.IsPlayerDashing()) {
+            if (GameManager.instance.IsPlayerDashing()) 
+            {
                 dashTimer += Time.deltaTime;
                 m_Rigidbody.velocity = dashVector * dashSpeed;
             }

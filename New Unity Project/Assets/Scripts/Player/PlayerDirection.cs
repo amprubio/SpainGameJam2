@@ -35,7 +35,8 @@ public class PlayerDirection : MonoBehaviour
         mousePos = new Vector2(mousePos.x, mousePos.y);
 
         lookDirection = mousePos - pos;
-        if (lookDirection.magnitude>1) {
+        if (lookDirection.magnitude>1 &&
+            !GameManager.instance.IsPlayerAttacking() ) {
 
             lookDirection.Normalize();
             new_rotation = Quaternion.FromToRotation(Vector2.up, lookDirection);
