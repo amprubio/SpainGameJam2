@@ -1,0 +1,4 @@
+# SpainGameJam2
+Submision of the Spain Game Jam II
+
+# RECORDATORIO: BORRAR CARPETAS LIBRARY Y PACKAGES

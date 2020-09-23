@@ -15,7 +15,7 @@ public class PlayerShoot : MonoBehaviour
 
     //needed vars
     Transform m_Transform;
-    Rigidbody2D target_Rigidbody;
+   
 
     //positions
     Vector2 pos;
@@ -36,22 +36,22 @@ public class PlayerShoot : MonoBehaviour
     void Update()
     {
         pos = m_Transform.position;
-        mousePos = camara_de_jugador.ScreenToWorldPoint (Input.mousePosition);
+        mousePos = camara_de_jugador.ScreenToWorldPoint(Input.mousePosition);
         mousePos = new Vector2(mousePos.x, mousePos.y);
 
 
         Debug.DrawLine(pos, mousePos, Color.red);
 
-        shootDirection = mousePos-pos;
+        shootDirection = mousePos - pos;
         shootDirection.Normalize();
 
         if (Input.GetKeyDown(shooting_key))
         {
             copy = Instantiate(bullet_object, pos, Quaternion.identity);
             copy.SetActive(true);
-            //Fetch the RigidBody component attached to the GameObject
-            target_Rigidbody = copy.GetComponent<Rigidbody2D>();
-            target_Rigidbody.AddForce(shootDirection*shootSpeed, ForceMode2D.Impulse);
+            BulletMovement b = copy.GetComponent<BulletMovement>();
+            b.setDir(shootDirection);
         }
     }
 }
+
