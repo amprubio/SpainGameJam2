@@ -10,8 +10,11 @@ public class MakeDamage : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            Vida v = col.gameObject.GetComponent<Vida>();
-            v.MakeDamage(damage);
+            if (!GameManager.instance.IsPlayerAttacking())
+            {
+                Vida v = col.gameObject.GetComponent<Vida>();
+                v.MakeDamage(damage);
+            }
         }
     }
 }

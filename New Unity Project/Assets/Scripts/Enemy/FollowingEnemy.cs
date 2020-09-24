@@ -33,25 +33,6 @@ public class FollowingEnemy : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (!col.gameObject.CompareTag("Enemy"))
-        {
-
-            Vida v = this.gameObject.GetComponent<Vida>();
-            if (v != null)
-            {
-              PlayerScythe p= col.gameObject.GetComponent<PlayerScythe>();
-              BulletMovement b = col.gameObject.GetComponent<BulletMovement>();
-
-                if (p != null)
-                {
-                    v.MakeDamage(p.damage);
-                }
-                else if( b != null)
-                {
-                    v.MakeDamage(b.damage);
-                }
-                Debug.Log("slash");
-            }
-        }
+       
     }
 }

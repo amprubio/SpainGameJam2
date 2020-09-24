@@ -24,7 +24,15 @@ public class Vida : MonoBehaviour
 
         if (curr_health < 0)
         {
-            Destroy(this.gameObject);
+            if (this.gameObject.CompareTag("Enemy"))
+            {
+                Destroy(this.gameObject);
+            }
+            else if (this.gameObject.CompareTag("Player"))
+            {
+                GameManager.instance.GameOver();
+            }
+
         }
 
     }

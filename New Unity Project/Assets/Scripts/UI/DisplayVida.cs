@@ -15,11 +15,6 @@ public class DisplayVida : MonoBehaviour
     void Start()
     {
         vida_jugador = jugador.GetComponent<Vida>();
-
-        for(int i = 0; i < images.Length; i++)
-        {
-            images[i].gameObject.SetActive(false);
-        }
     }
 
     // Update is called once per frame
@@ -29,11 +24,12 @@ public class DisplayVida : MonoBehaviour
         {
             images[i].gameObject.SetActive(false);
         }
+
         int v = vida_jugador.GetCurrentHealth();
         for (int i = 0; i <v ; i++)
         {
             images[i].gameObject.SetActive(true);
         }
-        
+        Debug.Log("Vida:" +v);
     }
 }

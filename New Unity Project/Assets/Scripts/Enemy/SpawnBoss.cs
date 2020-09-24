@@ -24,7 +24,7 @@ public class SpawnBoss : MonoBehaviour
     private void CreateEnemy()
     {
         int i = rnd.Next(0, 100);
-        if (i <= chance)
+        if (i <= chance && GameManager.instance.IsMoving())
         {
             Instantiate(enemy, this.transform.position, Quaternion.identity);
         }

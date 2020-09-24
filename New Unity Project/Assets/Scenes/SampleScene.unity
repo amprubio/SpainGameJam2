@@ -340,7 +340,7 @@ GameObject:
   m_Component:
   - component: {fileID: 238417582}
   - component: {fileID: 238417583}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -477,7 +477,7 @@ GameObject:
   m_Component:
   - component: {fileID: 372699380}
   - component: {fileID: 372699381}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: weaponPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -674,7 +674,7 @@ GameObject:
   - component: {fileID: 486980889}
   - component: {fileID: 486980890}
   - component: {fileID: 486980891}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -689,7 +689,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486980888}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.5, y: 1.8, z: -8.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6602499736875714928}
@@ -708,8 +708,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0, y: 0}
-  m_Size: {x: 50.12, y: 2.46}
+  m_Offset: {x: 13.52, y: -31.67}
+  m_Size: {x: 44.42, y: 2.46}
   m_Direction: 0
 --- !u!114 &486980891
 MonoBehaviour:
@@ -1134,7 +1134,7 @@ GameObject:
   - component: {fileID: 767584830}
   - component: {fileID: 767584831}
   - component: {fileID: 767584832}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: playerDirection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1203,7 +1203,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 841971686}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1411,7 +1411,7 @@ GameObject:
   - component: {fileID: 1247041310}
   - component: {fileID: 1247041309}
   - component: {fileID: 1247041308}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1490,14 +1490,14 @@ GameObject:
   - component: {fileID: 1393377018}
   - component: {fileID: 1393377017}
   - component: {fileID: 1393377016}
-  - component: {fileID: 1393377015}
   - component: {fileID: 1393377020}
-  - component: {fileID: 1393377019}
   - component: {fileID: 1393377021}
   - component: {fileID: 1393377023}
+  - component: {fileID: 1393377015}
   - component: {fileID: 1393377022}
   - component: {fileID: 1393377024}
-  m_Layer: 0
+  - component: {fileID: 1393377019}
+  m_Layer: 9
   m_Name: player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1641,8 +1641,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Size: {x: 1.1, y: 1.1}
+  m_EdgeRadius: 0.09
 --- !u!114 &1393377022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1686,7 +1686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9773ccaaaae1a9e44b6f8e05a3296785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_health: 3
+  max_health: 7
 --- !u!1 &1469083044
 GameObject:
   m_ObjectHideFlags: 0
@@ -1732,7 +1732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 2
   enemy: {fileID: 8895390220510046128, guid: 5f1b722d63bbe1e4aa5acf33f44c5e32, type: 3}
-  chance: 14
+  chance: 50
 --- !u!1 &1553047006
 GameObject:
   m_ObjectHideFlags: 0
@@ -1778,7 +1778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 2
   enemy: {fileID: 8895390220510046128, guid: 5f1b722d63bbe1e4aa5acf33f44c5e32, type: 3}
-  chance: 14
+  chance: 50
 --- !u!1 &1566105027
 GameObject:
   m_ObjectHideFlags: 0
@@ -2032,8 +2032,8 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
+  m_ChildScaleWidth: 1
+  m_ChildScaleHeight: 1
 --- !u!114 &1793948750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2235,6 +2235,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108580138}
   m_CullTransparentMesh: 0
+--- !u!1 &2124407986 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 661171408462115693, guid: 066759fdb785c1b4b8794c17317b0b2e,
+    type: 3}
+  m_PrefabInstance: {fileID: 5882748746077877877}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2124407993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124407986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6805d41e6b00c54498f7cf6f4679073, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 4
+  vel: {x: 0, y: 0}
+  xMax: 50
+  xMin: -50
+  yMax: 50
+  yMin: -50
 --- !u!23 &716173646198658633
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2338,7 +2362,7 @@ GameObject:
   - component: {fileID: 1746628815378012772}
   - component: {fileID: 4866981305582301885}
   - component: {fileID: 716173646198658633}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: staff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2473,9 +2497,9 @@ GameObject:
   - component: {fileID: 6602499736875714928}
   - component: {fileID: 6136715502728459520}
   - component: {fileID: 2907162916035441982}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: scytheBlade
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2489,7 +2513,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6126191497499202599}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: skullstaff
   m_TagString: Untagged
   m_Icon: {fileID: 0}

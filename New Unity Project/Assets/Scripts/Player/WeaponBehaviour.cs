@@ -8,8 +8,7 @@ public class WeaponBehaviour : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Enemy"))
         {
-            Destroy(col.gameObject);
-            Debug.Log("slash");
+         
         }
     }
 }

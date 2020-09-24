@@ -29,8 +29,8 @@ public class BulletMovement : MonoBehaviour
             {
                 v.MakeDamage(damage);
                 Debug.Log("BOOM");
-                Destroy(this.gameObject);
             }
+                Destroy(this.gameObject);
         }
     }
 }
