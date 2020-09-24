@@ -12,15 +12,15 @@ public class CamaraFollowTarget : MonoBehaviour
     [Header("Variables para que se agite la camara")]
     public float time;
     public float desplazamiento_y;
-    public float shakePower;
-    public float shakeDuration;
-
-
-    private float shakeTimer;
-    private float shakeForce;
+   
     public Transform player;
     private Vector2 velocidad;
 
+    public float shakeDuration = 0f;
+
+    // Amplitude of the shake. A larger value shakes the camera harder.
+    public float shakeAmount = 0.7f;
+    public float decreaseFactor = 1.0f;
 
     void LateUpdate()
     {
@@ -31,26 +31,26 @@ public class CamaraFollowTarget : MonoBehaviour
 
 
     }
-
-    private void Update()
+   public void Enable(float t)
     {
-        if (shakeTimer >= 0)
+        shakeDuration = t;
+    }
+
+    void Update()
+    {
+        if (shakeDuration > 0)
         {
-            Vector2 ShakePos = Random.insideUnitCircle * shakeForce;
+            transform.localPosition += Random.insideUnitSphere * shakeAmount;
 
-            transform.position = new Vector3(transform.position.x + ShakePos.x, transform.position.y + ShakePos.y, transform.position.z);
-
-
-            shakeTimer = shakeTimer - Time.deltaTime;
+            shakeDuration -= Time.deltaTime * decreaseFactor;
         }
+        else
+        {
+            shakeDuration = 0f;
+        }
+    }
 
 
-    }
-    public void ShakeCamera(float shakePower, float shakeDuration)
-    {
-        shakeForce = shakePower;
-        shakeTimer = shakeDuration;
-    }
 
 
 }

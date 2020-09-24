@@ -14,6 +14,7 @@ public class MakeDamage : MonoBehaviour
             {
                 Vida v = col.gameObject.GetComponent<Vida>();
                 v.MakeDamage(damage);
+                GameObject.Find("Main Camera").GetComponent<CamaraFollowTarget>().Enable(2f);
             }
         }
     }
