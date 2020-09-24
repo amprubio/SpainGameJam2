@@ -24,6 +24,8 @@ public class PlayerShoot : MonoBehaviour
     Vector2 shootDirection;
     float shootTimer;
 
+    static Plane XYPlane = new Plane(Vector3.forward, Vector3.zero);
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,8 +40,7 @@ public class PlayerShoot : MonoBehaviour
     void Update()
     {
         pos = m_Transform.position;
-        mousePos = camara_de_jugador.ScreenToWorldPoint(Input.mousePosition);
-        mousePos = new Vector2(mousePos.x, mousePos.y);
+        mousePos = GetMousePositionOnXYPlane();
 
 
         Debug.DrawLine(pos, mousePos, Color.green);
@@ -49,7 +50,8 @@ public class PlayerShoot : MonoBehaviour
 
         if (Input.GetKeyDown(shooting_key))
         {
-            if ( GameManager.instance.IsPlayerIdle() ) {
+            if ( GameManager.instance.IsPlayerIdle() &&
+                 GameManager.instance.IsGameStateStart() ) {
                 GameManager.instance.PlayerShooting();
                 copy = Instantiate(bullet_object, pos, Quaternion.identity);
                 copy.SetActive(true);
@@ -70,4 +72,17 @@ public class PlayerShoot : MonoBehaviour
             GameManager.instance.PlayerIdle();
         }
     }
+
+        //get mouse position on plane XY
+        Vector2 GetMousePositionOnXYPlane() {
+           float distance;
+           Ray ray = camara_de_jugador.ScreenPointToRay(Input.mousePosition);
+           if(XYPlane.Raycast (ray, out distance)) {
+               Vector3 hitPoint = ray.GetPoint(distance);
+               hitPoint.z = 0;
+
+               return new Vector2(hitPoint.x, hitPoint.y);
+           }
+           return new Vector2(0, 0);
+       }
 }

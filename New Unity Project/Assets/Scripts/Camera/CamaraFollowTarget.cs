@@ -11,6 +11,7 @@ public class CamaraFollowTarget : MonoBehaviour
     public float yMin;
     [Header("Variables para que se agite la camara")]
     public float time;
+    public float desplazamiento_y;
     public float shakePower;
     public float shakeDuration;
 
@@ -24,7 +25,7 @@ public class CamaraFollowTarget : MonoBehaviour
     void LateUpdate()
     {
         float posX = Mathf.SmoothDamp(transform.position.x, player.transform.position.x, ref velocidad.x, time);
-        float posY = Mathf.SmoothDamp(transform.position.y, player.transform.position.y, ref velocidad.y, time);
+        float posY = Mathf.SmoothDamp(transform.position.y, player.transform.position.y+desplazamiento_y, ref velocidad.y, time);
 
         transform.position = new Vector3(Mathf.Clamp(posX, xMin, xMax), Mathf.Clamp(posY, yMin, yMax), transform.position.z);
 
