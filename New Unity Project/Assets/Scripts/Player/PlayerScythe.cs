@@ -17,6 +17,7 @@ public class PlayerScythe : MonoBehaviour
     Animation slash;
     bool can_attack;
     public GameObject col_;
+    public int damage;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,11 +58,7 @@ public class PlayerScythe : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Enemy"))
-        {
-            Destroy(col.gameObject);
-            Debug.Log("slash");
-        }
+       
     }
 
 }

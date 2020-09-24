@@ -6,7 +6,7 @@ public class BulletMovement : MonoBehaviour
 {
     [Header("Velocidad")]
     public float speed;
-
+    public int damage;
     Vector2 dir;
 
     private void FixedUpdate()
@@ -24,9 +24,13 @@ public class BulletMovement : MonoBehaviour
     {
         if (!(col.gameObject.CompareTag("Player")))
         {
-           //quitar vida a col si tiene
-
-           Destroy(this.gameObject);
+            Vida v = col.gameObject.GetComponent<Vida>();
+            if (v != null)
+            {
+                v.MakeDamage(damage);
+                Debug.Log("BOOM");
+                Destroy(this.gameObject);
+            }
         }
     }
 }

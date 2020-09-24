@@ -35,7 +35,23 @@ public class FollowingEnemy : MonoBehaviour
     {
         if (!col.gameObject.CompareTag("Enemy"))
         {
-            Destroy(this.gameObject);
+
+            Vida v = this.gameObject.GetComponent<Vida>();
+            if (v != null)
+            {
+              PlayerScythe p= col.gameObject.GetComponent<PlayerScythe>();
+              BulletMovement b = col.gameObject.GetComponent<BulletMovement>();
+
+                if (p != null)
+                {
+                    v.MakeDamage(p.damage);
+                }
+                else if( b != null)
+                {
+                    v.MakeDamage(b.damage);
+                }
+                Debug.Log("slash");
+            }
         }
     }
 }
