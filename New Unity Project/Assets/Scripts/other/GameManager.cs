@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// StateMachine(GameOver,GameStart,Pause,StartMenu);
-// EntityMovState(Move,TimeFreeze,Stop);
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -82,6 +81,7 @@ public class GameManager : MonoBehaviour
 
     public void GameStart() {
         GameState = StateMachine.GAMESTART;
+        SceneManager.LoadScene("Game");
         Debug.Log ("Game state: GAMESTART");
     }
 
@@ -92,6 +92,7 @@ public class GameManager : MonoBehaviour
 
     public void StartMenu() {
         GameState = StateMachine.STARTMENU;
+        SceneManager.LoadScene("Menu");
         Debug.Log ("Game state: STARTMENU");
     }
     //////// STATE MACHINE ////////
