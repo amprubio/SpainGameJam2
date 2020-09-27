@@ -29,6 +29,10 @@ public class FollowingEnemy : MonoBehaviour
 
             transform.position = new Vector3(Mathf.Clamp(posX, xMin, xMax), Mathf.Clamp(posY, yMin, yMax), transform.position.z);
         }
+        else if (GameManager.instance.IsGameStateOver())
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D col)
