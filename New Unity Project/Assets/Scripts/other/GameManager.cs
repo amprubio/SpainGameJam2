@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
         GameState = new StateMachine();
         StartMenu();
         EntMoveState = new EntityMovState();
-        Move();
+        Stop();
         PlayerState = new PlayerStateMachine();
         PlayerIdle();
     }
@@ -90,20 +90,24 @@ public class GameManager : MonoBehaviour
         Debug.Log ("Game state: GAMEOVER");
         manager.DesactivatePausePanel();
         StartMenu();
+        Stop();
     }
 
     public void GameStart() {
         GameState = StateMachine.GAMESTART;
         manager.DesactivateStartPanel();
         Debug.Log ("Game state: GAMESTART");
+        manager.ActivateGameUI();
         manager.DesactivatePausePanel();
         manager.DesactivateStartPanel();
+        Move();
     }
 
     public void Pause() {
         GameState = StateMachine.PAUSE;
         Debug.Log ("Game state: PAUSE");
         manager.ActivatePausePanel();
+        Stop();
     }
 
     public void StartMenu() {
@@ -111,6 +115,8 @@ public class GameManager : MonoBehaviour
         manager.ActivateStartPanel();
         Debug.Log ("Game state: STARTMENU");
         manager.DesactivatePausePanel();
+        manager.DesactivateGameUI();
+        Stop();
     }
     //////// STATE MACHINE ////////
     ///////////////////////////////

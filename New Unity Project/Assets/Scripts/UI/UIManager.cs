@@ -10,6 +10,9 @@ public class UIManager : MonoBehaviour
     
     [Header("Panel de pausa")]
     public GameObject startPanel;
+    
+    [Header("vida")]
+    public GameObject gameUI;
 
 
     // Start is called before the first frame update
@@ -40,5 +43,12 @@ public class UIManager : MonoBehaviour
         startPanel.SetActive(false);
     }
 
-
+    public void ActivateGameUI()
+    {
+        gameUI.SetActive(true);
+    }
+    public void DesactivateGameUI()
+    {
+        gameUI.SetActive(false);
+    }
 }

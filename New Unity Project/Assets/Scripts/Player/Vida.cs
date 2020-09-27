@@ -22,7 +22,7 @@ public class Vida : MonoBehaviour
     {
         curr_health-=damage;
 
-        if (curr_health < 0)
+        if (curr_health <=0)
         {
             if (this.gameObject.CompareTag("Enemy"))
             {
@@ -30,7 +30,8 @@ public class Vida : MonoBehaviour
             }
             else if (this.gameObject.CompareTag("Player"))
             {
-                GameManager.instance.GameOver();
+                //GameManager.instance.GameOver();
+                Debug.Log("dEAD");
             }
 
         }
