@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         GameState = new StateMachine();
-        GameStart();
+        StartMenu();
         EntMoveState = new EntityMovState();
         Move();
         PlayerState = new PlayerStateMachine();
