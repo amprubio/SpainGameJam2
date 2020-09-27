@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
         else
             Destroy(this.gameObject);
 
-       
+
     }
     private void Start()
     {

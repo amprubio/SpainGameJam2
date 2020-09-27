@@ -43,7 +43,7 @@ public class PlayerDirection : MonoBehaviour
             lookDirection.Normalize();
             new_rotation = Quaternion.FromToRotation(Vector2.up, lookDirection);
             m_Transform.rotation = Quaternion.Slerp(transform.rotation, new_rotation,  Time.deltaTime / look_delay);
-            Debug.DrawLine(m_Transform.position,new Vector3(mousePos.x,mousePos.y,0),Color.green);
+            //Debug.DrawLine(m_Transform.position,new Vector3(mousePos.x,mousePos.y,0),Color.green);
         }
 
     }

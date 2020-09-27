@@ -9,7 +9,7 @@ public class PlayerScythe : MonoBehaviour
     public KeyCode attackKey;
 
     [Header("Necesario configurar")]
-    public GameObject scythePivot;
+    public GameObject scytheAnimator;
     public GameObject scytheTrail;
 
     Animator anim;
@@ -22,7 +22,7 @@ public class PlayerScythe : MonoBehaviour
     void Start()
     {
 
-        anim = scythePivot.GetComponent<Animator>();
+        anim = scytheAnimator.GetComponent<Animator>();
         trail = scytheTrail.GetComponent<TrailRenderer>();
     }
 
