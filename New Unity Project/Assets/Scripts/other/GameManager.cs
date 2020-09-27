@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public enum StateMachine : int
     {
         GAMEOVER,
+        GAMEWIN,
         GAMESTART,
         PAUSE,          //Player is viewing in-game menu
         STARTMENU      //Player is viewing game start menu
@@ -67,7 +68,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         GameState = new StateMachine();
-        StartMenu();
+        GameStart();
         EntMoveState = new EntityMovState();
         Stop();
         PlayerState = new PlayerStateMachine();

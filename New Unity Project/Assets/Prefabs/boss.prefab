@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 8728248800052763622}
   - component: {fileID: 8938075751506367075}
   - component: {fileID: 4471954322668121615}
-  - component: {fileID: 8729865544408953336}
   - component: {fileID: 8444799452745530211}
-  - component: {fileID: -1399291546001213334}
+  - component: {fileID: 7621128720504199070}
+  - component: {fileID: 5479397347430881964}
+  - component: {fileID: 6316595326899501027}
   m_Layer: 8
   m_Name: boss
   m_TagString: Enemy
@@ -131,19 +132,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &8729865544408953336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 661171408462115693}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9773ccaaaae1a9e44b6f8e05a3296785, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  max_health: 30
 --- !u!114 &8444799452745530211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 2
---- !u!114 &-1399291546001213334
+--- !u!114 &7621128720504199070
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,4 +157,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e7236c9dc131f6408974ea9b2e37f0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 6395190343000324258, guid: 7c67ab6900a91564a831965b34af7167, type: 3}
+  target: {fileID: 780121742839183363, guid: 7c67ab6900a91564a831965b34af7167, type: 3}
+--- !u!114 &5479397347430881964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661171408462115693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45ab2cf8981133141902385cbe06b870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 0
+  enemy: {fileID: 8895390220510046128, guid: 5f1b722d63bbe1e4aa5acf33f44c5e32, type: 3}
+  chance: 0
+--- !u!114 &6316595326899501027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661171408462115693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6805d41e6b00c54498f7cf6f4679073, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 4
+  vel: {x: 2, y: 2}
+  xMax: 1000
+  xMin: -1000
+  yMax: 1000
+  yMin: -1000

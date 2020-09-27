@@ -30,10 +30,14 @@ public class Vida : MonoBehaviour
             }
             else if (this.gameObject.CompareTag("Player"))
             {
-                //GameManager.instance.GameOver();
+                GameManager.instance.GameOver();
                 Debug.Log("dEAD");
             }
 
+        }
+        if (GameManager.instance.IsGameStateOver())
+        {
+            ResetLife();
         }
 
     }
