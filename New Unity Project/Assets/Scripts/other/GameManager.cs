@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     public bool IsGameStateStart() { return GameState == StateMachine.GAMESTART; }
     public bool IsGameStatePause() { return GameState == StateMachine.PAUSE;}
     public bool IsGameStateOver() { return GameState == StateMachine.GAMEOVER;}
-    public bool IsGameStateStartMenu() { return GameState == StateMachine.GAMEOVER;}
+    public bool IsGameStateStartMenu() { return GameState == StateMachine.STARTMENU;}
 
     public EntityMovState GetEntityMov() { return EntMoveState; }
     public bool IsMoving() { return EntMoveState == EntityMovState.MOVE; }

@@ -54,8 +54,6 @@ public class animateLegs : MonoBehaviour
         relativeVelocity = RotateAngle(displacement,angle);
 
         angleDiff = Vector2.SignedAngle(relativeVelocity, Vector2.up);
-        Debug.Log(Mathf.Abs(angleDiff));
-
 
         Debug.DrawRay(prePos, lookDirection, Color.red);
         Debug.DrawRay(prePos, relativeVelocity, Color.green);
@@ -66,19 +64,27 @@ public class animateLegs : MonoBehaviour
         if ( testVectorMagnitude.magnitude > 0.5f ) {
             if ( testAngle < 45 ) {
                 anim.SetInteger("movingY", 0); // 0 forwards, 1 idle, 2 backwards
+                anim.SetInteger("movingX", 1); // 0 left, 1 idle, 2 right
+            }
+
+            if ( testAngle >= 45 && testAngle <= 135 ) {
+                if (angleDiff>0) {
+                    anim.SetInteger("movingX", 2); // 0 left, 1 idle, 2 right
+                } else {
+                    anim.SetInteger("movingX", 0); // 0 left, 1 idle, 2 right
+                }
+                anim.SetInteger("movingY", 1); // 0 forwards, 1 idle, 2 backwards
+
             }
 
             if ( testAngle > 135 ) {
                 anim.SetInteger("movingY", 2); // 0 forwards, 1 idle, 2 backwards
+                anim.SetInteger("movingX", 1); // 0 left, 1 idle, 2 right
             }
         } else {
             anim.SetInteger("movingY", 1); // 0 forwards, 1 idle, 2 backwards
+            anim.SetInteger("movingX", 1); // 0 left, 1 idle, 2 right
         }
-
-        if ( testAngle >= 45 && testAngle <= 135 ) {
-            anim.SetInteger("movingY", 1); // 0 forwards, 1 idle, 2 backwards
-        }
-        Debug.Log(anim.GetInteger("movingY"));
     }
 
     void LateUpdate(){
