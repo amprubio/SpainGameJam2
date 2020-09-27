@@ -16,7 +16,7 @@ public class PlayerScythe : MonoBehaviour
     TrailRenderer trail;
     Animation slash;
     bool can_attack;
-    public GameObject col_;
+    //public GameObject col_;
     public int damage;
     // Start is called before the first frame update
     void Start()
@@ -46,12 +46,12 @@ public class PlayerScythe : MonoBehaviour
                     anim.Play("attack", 0, 1/attackSpeed);
                     can_attack = false;
                     GameManager.instance.PlayerAttacking();
-                    col_.SetActive(true);
+                    //col_.SetActive(true);
                 }
             }
             else
             {
-                col_.SetActive(false);
+                //col_.SetActive(false);
             }
         }
     }
