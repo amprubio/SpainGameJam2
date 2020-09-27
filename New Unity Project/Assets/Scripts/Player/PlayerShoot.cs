@@ -43,7 +43,7 @@ public class PlayerShoot : MonoBehaviour
         mousePos = GetMousePositionOnXYPlane();
 
 
-        Debug.DrawLine(pos, mousePos, Color.green);
+        //Debug.DrawLine(pos, mousePos, Color.green);
 
         shootDirection = mousePos - pos;
         shootDirection.Normalize();

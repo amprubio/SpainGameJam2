@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
+    public UIManager manager;
     public enum StateMachine : int
     {
         GAMEOVER,
@@ -62,6 +62,10 @@ public class GameManager : MonoBehaviour
         else
             Destroy(this.gameObject);
 
+
+    }
+    private void Start()
+    {
         GameState = new StateMachine();
         GameStart();
         EntMoveState = new EntityMovState();
@@ -70,30 +74,43 @@ public class GameManager : MonoBehaviour
         PlayerIdle();
     }
 
+    void Update()
+    {
 
+        if (Input.GetKeyDown(KeyCode.Escape) && GameState==StateMachine.GAMESTART)
+        {
+            Pause();
+        }
+    }
 
     ///////////////////////////////
     //////// STATE MACHINE ////////
     public void GameOver() {
         GameState = StateMachine.GAMEOVER;
         Debug.Log ("Game state: GAMEOVER");
+        manager.DesactivatePausePanel();
+        StartMenu();
     }
 
     public void GameStart() {
         GameState = StateMachine.GAMESTART;
-        SceneManager.LoadScene("Game");
+        manager.DesactivateStartPanel();
         Debug.Log ("Game state: GAMESTART");
+        manager.DesactivatePausePanel();
+        manager.DesactivateStartPanel();
     }
 
     public void Pause() {
         GameState = StateMachine.PAUSE;
         Debug.Log ("Game state: PAUSE");
+        manager.ActivatePausePanel();
     }
 
     public void StartMenu() {
         GameState = StateMachine.STARTMENU;
-        SceneManager.LoadScene("Menu");
+        manager.ActivateStartPanel();
         Debug.Log ("Game state: STARTMENU");
+        manager.DesactivatePausePanel();
     }
     //////// STATE MACHINE ////////
     ///////////////////////////////
